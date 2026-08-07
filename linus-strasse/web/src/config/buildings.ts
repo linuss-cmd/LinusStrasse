@@ -17,9 +17,8 @@ export interface Building {
 }
 
 // Street order (left to right):
-// Spielhalle → LinkedIn | YouTube | Contact Kiosk | About Me Friseur | SoundCloud
-// About Me + Contact are in the center — first visible on load.
-// Spielhalle links to dirtyclarks.com (Napkin Notes).
+// Spielhalle | YouTube | LinkedIn | Contact Kiosk | About Me Friseur | SoundCloud | Instagram Café
+// Contact Kiosk + About Me Friseur are in the center — first visible on load.
 export const buildings: Building[] = [
   {
     id: 'spielhalle-left',
@@ -30,20 +29,20 @@ export const buildings: Building[] = [
     action: { type: 'external', target: 'https://dirtyclarks.com' },
   },
   {
-    id: 'linkedin',
-    image: '/buildings/linkedin-office.png',
-    alt: 'LinkedIn Büro — Linus auf LinkedIn',
-    naturalWidth: 1506,
-    naturalHeight: 922,
-    action: { type: 'external', target: 'https://www.linkedin.com/in/linus-saschek-b31a1a426' },
-  },
-  {
     id: 'youtube',
     image: '/buildings/youtube-kino.png',
     alt: 'YouTube Kino — Linus auf YouTube',
     naturalWidth: 1537,
     naturalHeight: 838,
     action: { type: 'external', target: 'https://www.youtube.com' },
+  },
+  {
+    id: 'linkedin',
+    image: '/buildings/linkedin-office.png',
+    alt: 'LinkedIn Büro — Linus auf LinkedIn',
+    naturalWidth: 1506,
+    naturalHeight: 922,
+    action: { type: 'external', target: 'https://www.linkedin.com/in/linus-saschek-b31a1a426' },
   },
   {
     id: 'contact',
@@ -68,5 +67,13 @@ export const buildings: Building[] = [
     naturalWidth: 1129,
     naturalHeight: 1254,
     action: { type: 'external', target: 'https://soundcloud.com/user-378441491' },
+  },
+  {
+    id: 'instagram',
+    image: '/buildings/instagram-cafe.png',
+    alt: 'Instagram Café — Linus auf Instagram',
+    naturalWidth: 1254,
+    naturalHeight: 1254,
+    action: { type: 'external', target: 'https://www.instagram.com/linusferrari.de' },
   },
 ]
