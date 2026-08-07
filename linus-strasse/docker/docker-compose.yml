@@ -45,7 +45,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-public"
-      - "traefik.http.routers.linus-web.rule=Host(`linusssaschek.com`) || Host(`www.linusssaschek.com`)"
+      - "traefik.http.routers.linus-web.rule=Host(`linusssaschek.com`)"
       - "traefik.http.routers.linus-web.entrypoints=websecure"
       - "traefik.http.routers.linus-web.tls.certresolver=letsencrypt"
       - "traefik.http.services.linus-web.loadbalancer.server.port=80"

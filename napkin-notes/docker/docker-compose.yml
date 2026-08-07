@@ -66,7 +66,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-public"
-      - "traefik.http.routers.napkin-web.rule=Host(`dirtyclarks.com`) || Host(`www.dirtyclarks.com`)"
+      - "traefik.http.routers.napkin-web.rule=Host(`dirtyclarks.com`)"
       - "traefik.http.routers.napkin-web.entrypoints=websecure"
       - "traefik.http.routers.napkin-web.tls.certresolver=letsencrypt"
       - "traefik.http.services.napkin-web.loadbalancer.server.port=80"
