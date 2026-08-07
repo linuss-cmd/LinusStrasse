@@ -79,14 +79,15 @@ jobs:
             docker compose up -d --build
 
             # Deploy napkin-notes (joins traefik-public, no own Traefik)
-            cd /root/napkin-notes/napkin-notes/docker
-            cat > .env << ENVEOF
-DB_NAME=${{ secrets.NAPKIN_DB_NAME }}
-DB_USER=${{ secrets.NAPKIN_DB_USER }}
-DB_PASSWORD=${{ secrets.NAPKIN_DB_PASSWORD }}
-JWT_SECRET=${{ secrets.NAPKIN_JWT_SECRET }}
-ACME_EMAIL=${{ secrets.ACME_EMAIL }}
-ENVEOF
+            cd /root/napkin-notes
+            git pull origin main
+            cd napkin-notes/docker
+            printf 'DB_NAME=%s\nDB_USER=%s\nDB_PASSWORD=%s\nJWT_SECRET=%s\nACME_EMAIL=%s\n' \
+              '${{ secrets.NAPKIN_DB_NAME }}' \
+              '${{ secrets.NAPKIN_DB_USER }}' \
+              '${{ secrets.NAPKIN_DB_PASSWORD }}' \
+              '${{ secrets.NAPKIN_JWT_SECRET }}' \
+              '${{ secrets.ACME_EMAIL }}' > .env
             docker compose up -d --build
 
             docker image prune -f
