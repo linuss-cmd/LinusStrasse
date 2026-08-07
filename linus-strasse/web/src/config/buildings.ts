@@ -18,9 +18,9 @@ export interface Building {
 }
 
 // Street order (left to right):
-// Spielhalle (edge) | LinkedIn | YouTube | Contact Kiosk | About Me Barber | SoundCloud | Spielhalle (edge)
+// Spielhalle (edge) | LinkedIn | YouTube | Contact Kiosk | About Me Barber | SoundCloud
 // About Me + Contact are in the center — first visible on load.
-// Spielhalle has no action (placeholder, future projects).
+// Spielhalle has no action (placeholder for future projects).
 export const buildings: Building[] = [
   {
     id: 'spielhalle-left',
@@ -69,13 +69,5 @@ export const buildings: Building[] = [
     naturalWidth: 1129,
     naturalHeight: 1254,
     action: { type: 'external', target: 'https://soundcloud.com/user-378441491' },
-  },
-  {
-    id: 'spielhalle-right',
-    image: '/buildings/spielhalle.png',
-    alt: 'Spielhalle — zukünftige Projekte und Spielereien',
-    naturalWidth: 1448,
-    naturalHeight: 1086,
-    action: { type: 'none' },
   },
 ]
