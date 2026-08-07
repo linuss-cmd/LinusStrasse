@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#e8e0d8"/>
+  <!-- Building structure -->
+  <rect x="0" y="80" width="800" height="920" fill="#d4c8b8"/>
+  <!-- Awning stripes -->
+  <rect x="0" y="80" width="800" height="70" fill="#c8a87a"/>
+  <rect x="0" y="100" width="800" height="10" fill="#b89060" opacity="0.5"/>
+  <rect x="0" y="120" width="800" height="10" fill="#b89060" opacity="0.5"/>
+  <!-- Sign -->
+  <rect x="150" y="20" width="500" height="55" fill="#2a2a2a" rx="3"/>
+  <text x="400" y="58" text-anchor="middle" fill="#f0e8d8" font-family="serif" font-size="26" letter-spacing="3">FRISEUR</text>
+  <!-- Window left -->
+  <rect x="40" y="200" width="220" height="320" fill="#f5ede0" rx="2"/>
+  <rect x="50" y="210" width="200" height="300" fill="#ede0cc"/>
+  <!-- Barber pole -->
+  <rect x="60" y="220" width="30" height="280" fill="white"/>
+  <rect x="60" y="220" width="30" height="40" fill="#cc2200"/>
+  <rect x="60" y="300" width="30" height="40" fill="#cc2200"/>
+  <rect x="60" y="380" width="30" height="40" fill="#cc2200"/>
+  <rect x="60" y="460" width="30" height="20" fill="#0033aa"/>
+  <!-- Window right -->
+  <rect x="540" y="200" width="220" height="320" fill="#f5ede0" rx="2"/>
+  <rect x="550" y="210" width="200" height="300" fill="#ede0cc"/>
+  <!-- Door -->
+  <rect x="300" y="600" width="200" height="400" fill="#8a7060" rx="2"/>
+  <rect x="380" y="780" width="10" height="10" rx="5" fill="#c8a050"/>
+  <!-- Text on door -->
+  <text x="400" y="700" text-anchor="middle" fill="#f0e8d8" font-family="serif" font-size="14">Über mich</text>
+</svg>

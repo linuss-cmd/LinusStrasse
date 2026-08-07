@@ -25,10 +25,12 @@ describe('buildings config', () => {
   })
 
   it('every building has a valid action type', () => {
-    const validTypes = ['external', 'internal', 'overlay']
+    const validTypes = ['external', 'internal', 'overlay', 'none']
     for (const b of buildings) {
       expect(validTypes).toContain(b.action.type)
-      expect(b.action.target.trim().length).toBeGreaterThan(0)
+      if (b.action.type !== 'none') {
+        expect(b.action.target.trim().length).toBeGreaterThan(0)
+      }
     }
   })
 })
