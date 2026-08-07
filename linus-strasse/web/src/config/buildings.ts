@@ -36,7 +36,7 @@ export const buildings: Building[] = [
     alt: 'LinkedIn Büro — Linus auf LinkedIn',
     naturalWidth: 1506,
     naturalHeight: 922,
-    action: { type: 'external', target: 'https://www.linkedin.com/in/linus' },
+    action: { type: 'external', target: 'https://www.linkedin.com/in/linus-saschek-b31a1a426' },
   },
   {
     id: 'youtube',
