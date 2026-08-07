@@ -68,7 +68,7 @@ export const buildings: Building[] = [
     alt: 'SoundCloud Plattenladen — Linus auf SoundCloud',
     naturalWidth: 1129,
     naturalHeight: 1254,
-    action: { type: 'external', target: 'https://soundcloud.com' },
+    action: { type: 'external', target: 'https://soundcloud.com/user-378441491' },
   },
   {
     id: 'spielhalle-right',
