@@ -1,3 +1,5 @@
+name: napkin-notes
+
 services:
   api:
     build:
