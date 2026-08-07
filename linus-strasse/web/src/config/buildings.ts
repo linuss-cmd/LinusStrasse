@@ -56,10 +56,10 @@ export const buildings: Building[] = [
   },
   {
     id: 'about',
-    image: '/buildings/placeholder-about.svg',
-    alt: 'Friseursalon — Über Linus',
-    naturalWidth: 800,
-    naturalHeight: 1000,
+    image: '/buildings/about-friseur.png',
+    alt: 'About Me Friseur — Über Linus',
+    naturalWidth: 1420,
+    naturalHeight: 959,
     action: { type: 'internal', target: '/about' },
   },
   {
