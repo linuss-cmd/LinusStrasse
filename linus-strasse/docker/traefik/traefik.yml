@@ -19,7 +19,7 @@ providers:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: "${ACME_EMAIL}"
+      email: "pgehrig@outlook.com"
       storage: /letsencrypt/acme.json
       httpChallenge:
         entryPoint: web
