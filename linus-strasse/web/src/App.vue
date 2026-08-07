@@ -1,37 +1,31 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-
-const message = ref('')
-const error = ref('')
-
-onMounted(async () => {
-  try {
-    const res = await fetch('/api/hello')
-    const data = await res.json()
-    message.value = data.message
-  } catch {
-    error.value = 'Failed to reach API'
-  }
-})
+import StreetView from './components/StreetView.vue'
 </script>
 
 <template>
-  <div class="container">
-    <h1 v-if="message">{{ message }}</h1>
-    <p v-else-if="error" class="error">{{ error }}</p>
-    <p v-else>Loading...</p>
-  </div>
+  <StreetView />
 </template>
 
-<style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: sans-serif;
+<style>
+/* Global reset — the street should fill the entire viewport with no browser margins */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.error {
-  color: red;
+
+/* Street background — change --street-bg to restyle the backdrop */
+:root {
+  --street-bg: #f2f0eb;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* StreetView handles its own scroll */
+  background-color: var(--street-bg);
+}
+
+#app {
+  height: 100%;
 }
 </style>

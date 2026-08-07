@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="800" viewBox="0 0 520 800">
+  <rect width="520" height="800" fill="#e8d0c8"/>
+  <!-- Building structure -->
+  <rect x="10" y="80" width="500" height="720" fill="#d4b8b0"/>
+  <!-- Marquee -->
+  <rect x="10" y="80" width="500" height="80" fill="#cc0000"/>
+  <text x="260" y="132" text-anchor="middle" fill="white" font-family="sans-serif" font-size="28" font-weight="bold">▶ KINO</text>
+  <!-- Ticket booth windows -->
+  <rect x="40" y="200" width="140" height="160" fill="#ffe0d0" rx="4"/>
+  <rect x="60" y="220" width="100" height="80" fill="#ffccbb"/>
+  <rect x="340" y="200" width="140" height="160" fill="#ffe0d0" rx="4"/>
+  <rect x="360" y="220" width="100" height="80" fill="#ffccbb"/>
+  <!-- Screen graphic -->
+  <rect x="100" y="400" width="320" height="200" fill="#1a1a1a" rx="2"/>
+  <polygon points="220,450 220,550 320,500" fill="#ff0000"/>
+  <!-- Doors -->
+  <rect x="140" y="640" width="80" height="160" fill="#aa7766" rx="2"/>
+  <rect x="300" y="640" width="80" height="160" fill="#aa7766" rx="2"/>
+  <!-- YouTube sign -->
+  <rect x="160" y="30" width="200" height="44" fill="#ff0000" rx="6"/>
+  <text x="260" y="60" text-anchor="middle" fill="white" font-family="sans-serif" font-size="18" font-weight="bold">YouTube</text>
+</svg>
