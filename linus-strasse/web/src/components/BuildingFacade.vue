@@ -12,7 +12,7 @@ function handleClick(): void {
   } else if (action.type === 'internal') {
     router.push(action.target)
   }
-  // 'overlay' and 'none' have no click action
+  // 'overlay' has no click action yet
 }
 </script>
 
@@ -21,11 +21,10 @@ function handleClick(): void {
        The image is the entire interactive surface — no overlays, no labels injected. -->
   <a
     class="building"
-    :href="building.action.type !== 'none' ? building.action.target : undefined"
+    :href="building.action.target"
     :target="building.action.type === 'external' ? '_blank' : undefined"
     :rel="building.action.type === 'external' ? 'noopener noreferrer' : undefined"
     :aria-label="building.alt"
-    :style="building.action.type === 'none' ? { cursor: 'default', pointerEvents: 'none' } : {}"
     @click.prevent="handleClick"
   >
     <img

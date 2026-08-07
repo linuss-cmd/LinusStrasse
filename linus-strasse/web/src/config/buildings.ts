@@ -6,7 +6,6 @@ export type BuildingAction =
   | { type: 'external'; target: string }  // opens in new tab
   | { type: 'internal'; target: string }  // vue-router push
   | { type: 'overlay'; target: string }   // shows overlay panel (future)
-  | { type: 'none' }                      // no interaction — decorative building
 
 export interface Building {
   id: string            // unique key — used as Vue :key
@@ -18,9 +17,9 @@ export interface Building {
 }
 
 // Street order (left to right):
-// Spielhalle (edge) | LinkedIn | YouTube | Contact Kiosk | About Me Barber | SoundCloud
+// Spielhalle → LinkedIn | YouTube | Contact Kiosk | About Me Friseur | SoundCloud
 // About Me + Contact are in the center — first visible on load.
-// Spielhalle has no action (placeholder for future projects).
+// Spielhalle links to dirtyclarks.com (Napkin Notes).
 export const buildings: Building[] = [
   {
     id: 'spielhalle-left',
@@ -28,7 +27,7 @@ export const buildings: Building[] = [
     alt: 'Spielhalle — zukünftige Projekte und Spielereien',
     naturalWidth: 1448,
     naturalHeight: 1086,
-    action: { type: 'none' },
+    action: { type: 'external', target: 'https://dirtyclarks.com' },
   },
   {
     id: 'linkedin',
