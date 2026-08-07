@@ -42,7 +42,7 @@ export const buildings: Building[] = [
     image: '/buildings/youtube-kino.png',
     alt: 'YouTube Kino — Linus auf YouTube',
     naturalWidth: 1537,
-    naturalHeight: 1023,
+    naturalHeight: 838,
     action: { type: 'external', target: 'https://www.youtube.com' },
   },
   {
