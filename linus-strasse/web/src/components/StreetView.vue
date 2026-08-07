@@ -1,11 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import { buildings } from '../config/buildings'
 import { useHorizontalScroll } from '../composables/useHorizontalScroll'
 import BuildingFacade from './BuildingFacade.vue'
 
 const streetRef = ref<HTMLElement | null>(null)
 useHorizontalScroll(streetRef)
+
+// Scroll so that the 'contact' building (and the adjacent 'about' barber)
+// are centered in the viewport on initial load.
+const CENTER_BUILDING_ID = 'contact'
+
+onMounted(async () => {
+  // Wait for the DOM to settle so offsetLeft values are accurate.
+  await nextTick()
+  const container = streetRef.value
+  if (!container) return
+
+  const target = container.querySelector<HTMLElement>(`[data-building-id="${CENTER_BUILDING_ID}"]`)
+  if (!target) return
+
+  // Center the target building horizontally in the viewport.
+  const targetCenter = target.offsetLeft + target.offsetWidth / 2
+  const viewportCenter = container.clientWidth / 2
+  container.scrollLeft = targetCenter - viewportCenter
+})
 </script>
 
 <template>
@@ -17,6 +36,7 @@ useHorizontalScroll(streetRef)
       v-for="building in buildings"
       :key="building.id"
       :building="building"
+      :data-building-id="building.id"
     />
   </div>
 </template>
