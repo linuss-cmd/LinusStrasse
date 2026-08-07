@@ -34,6 +34,6 @@ Prüft Code-Qualität nach `.claude/sanity-check.md`:
 
 ## Server / Infra
 - Server: `178.104.117.28` (root) — Credentials in `.env`
-- `linusssaschek.com` → linus-strasse Stack (Portfolio)
+- `linussaschek.com` → linus-strasse Stack (Portfolio)
 - `dirtyclarks.com` → napkin-notes Stack (Napkin Notes App)
 - Shared Traefik in `linus-strasse` Stack, Netzwerk: `traefik-public`
