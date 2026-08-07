@@ -5,11 +5,13 @@ on:
     branches: [main]
     paths:
       - 'linus-strasse/**'
+      - 'napkin-notes/**'
       - '.github/workflows/ci.yml'
   pull_request:
     branches: [main]
     paths:
       - 'linus-strasse/**'
+      - 'napkin-notes/**'
       - '.github/workflows/ci.yml'
 
 jobs:
@@ -66,15 +68,19 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            # Stop old napkin-notes stack if it exists
-            if [ -d /root/napkin-notes/napkin-notes/docker ]; then
-              cd /root/napkin-notes/napkin-notes/docker
-              docker compose down || true
-            fi
+            # Ensure shared Traefik network exists
+            docker network create traefik-public 2>/dev/null || true
 
+            # Deploy linus-strasse (owns Traefik)
             cd /root/LinusStrasse
             git pull origin main
             cd linus-strasse/docker
             echo "ACME_EMAIL=${{ secrets.ACME_EMAIL }}" > .env
             docker compose up -d --build
+
+            # Deploy napkin-notes (joins traefik-public, no own Traefik)
+            cd /root/napkin-notes/napkin-notes/docker
+            echo "ACME_EMAIL=${{ secrets.ACME_EMAIL }}" > .env
+            docker compose up -d --build
+
             docker image prune -f

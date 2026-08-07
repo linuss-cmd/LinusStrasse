@@ -1,15 +1,4 @@
 services:
-  traefik:
-    image: traefik:v2.11
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
-      - letsencrypt:/letsencrypt
-
   api:
     build:
       context: ..
@@ -37,10 +26,14 @@ services:
         condition: service_healthy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`${DOMAIN}`) && PathPrefix(`/api`)"
-      - "traefik.http.routers.api.entrypoints=websecure"
-      - "traefik.http.routers.api.tls.certresolver=letsencrypt"
-      - "traefik.http.services.api.loadbalancer.server.port=8080"
+      - "traefik.docker.network=traefik-public"
+      - "traefik.http.routers.napkin-api.rule=Host(`dirtyclarks.com`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.napkin-api.entrypoints=websecure"
+      - "traefik.http.routers.napkin-api.tls.certresolver=letsencrypt"
+      - "traefik.http.services.napkin-api.loadbalancer.server.port=8080"
+    networks:
+      - traefik-public
+      - internal
 
   fontforge:
     build:
@@ -62,6 +55,8 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    networks:
+      - internal
 
   web:
     build:
@@ -70,10 +65,13 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.web.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.web.entrypoints=websecure"
-      - "traefik.http.routers.web.tls.certresolver=letsencrypt"
-      - "traefik.http.services.web.loadbalancer.server.port=80"
+      - "traefik.docker.network=traefik-public"
+      - "traefik.http.routers.napkin-web.rule=Host(`dirtyclarks.com`) || Host(`www.dirtyclarks.com`)"
+      - "traefik.http.routers.napkin-web.entrypoints=websecure"
+      - "traefik.http.routers.napkin-web.tls.certresolver=letsencrypt"
+      - "traefik.http.services.napkin-web.loadbalancer.server.port=80"
+    networks:
+      - traefik-public
 
   db:
     image: postgres:16-alpine
@@ -89,6 +87,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - internal
 
   redis:
     image: redis:7-alpine
@@ -98,8 +98,16 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - internal
+
+networks:
+  traefik-public:
+    name: traefik-public
+    external: true
+  internal:
+    internal: true
 
 volumes:
   pgdata:
   storage:
-  letsencrypt:
