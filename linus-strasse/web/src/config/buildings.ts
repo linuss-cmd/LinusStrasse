@@ -41,4 +41,12 @@ export const buildings: Building[] = [
     naturalHeight: 800,
     action: { type: 'external', target: 'https://soundcloud.com' },
   },
+  {
+    id: 'contact',
+    image: '/buildings/contact-kiosk.png',
+    alt: 'Contact Kiosk — Kontakt aufnehmen mit Linus',
+    naturalWidth: 1254,
+    naturalHeight: 1254,
+    action: { type: 'internal', target: '/contact' },
+  },
 ]

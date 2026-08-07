@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import StreetView from './components/StreetView.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <StreetView />
+  <RouterView />
 </template>
 
 <style>

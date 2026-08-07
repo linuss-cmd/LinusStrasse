@@ -1,14 +1,18 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import type { Building } from '../config/buildings'
 
 const props = defineProps<{ building: Building }>()
+const router = useRouter()
 
 function handleClick(): void {
   const { action } = props.building
   if (action.type === 'external') {
     window.open(action.target, '_blank', 'noopener,noreferrer')
+  } else if (action.type === 'internal') {
+    router.push(action.target)
   }
-  // 'internal' and 'overlay' are wired up in future stories
+  // 'overlay' wired up in a future story
 }
 </script>
 
@@ -17,7 +21,7 @@ function handleClick(): void {
        The image is the entire interactive surface — no overlays, no labels injected. -->
   <a
     class="building"
-    :href="building.action.type === 'external' ? building.action.target : '#'"
+    :href="building.action.type === 'external' ? building.action.target : building.action.target"
     :target="building.action.type === 'external' ? '_blank' : undefined"
     :rel="building.action.type === 'external' ? 'noopener noreferrer' : undefined"
     :aria-label="building.alt"
