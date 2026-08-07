@@ -3,11 +3,11 @@ FROM node:20-alpine AS builder
 
 WORKDIR /build
 
-COPY web/package.json web/yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY web/package.json web/package-lock.json ./
+RUN npm ci
 
 COPY web/ .
-RUN yarn build
+RUN npm run build
 
 # Runtime stage
 FROM nginx:alpine
