@@ -14,6 +14,7 @@ export interface Building {
   naturalWidth: number  // natural image width in px — prevents layout shift
   naturalHeight: number // natural image height in px — prevents layout shift
   action: BuildingAction
+  bottomOffset?: string // CSS margin-bottom to correct for images with white space at bottom
 }
 
 // Street order (left to right):
@@ -75,5 +76,6 @@ export const buildings: Building[] = [
     naturalWidth: 1254,
     naturalHeight: 1254,
     action: { type: 'external', target: 'https://www.instagram.com/linusferrari.de' },
+    bottomOffset: '-8%', // compensates white space at bottom of image
   },
 ]
