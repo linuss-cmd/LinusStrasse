@@ -25,6 +25,7 @@ function handleClick(): void {
     :target="building.action.type === 'external' ? '_blank' : undefined"
     :rel="building.action.type === 'external' ? 'noopener noreferrer' : undefined"
     :aria-label="building.alt"
+    :style="building.bottomOffset ? { marginBottom: building.bottomOffset } : {}"
     @click.prevent="handleClick"
   >
     <img
